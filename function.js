@@ -40,10 +40,9 @@ function showZurichClock() {
  */
 function calculateClock(pDateTime) {
     pDateTime = new Date(pDateTime);
-    hour = pDateTime.getHours();
-    minute = pDateTime.getMinutes();
-    second = pDateTime.getSeconds();
-    addZero();
+    hour = addZero(pDateTime.getHours());
+    minute = addZero(pDateTime.getMinutes());
+    second = addZero(pDateTime.getSeconds());
 }
 
 /**
@@ -64,14 +63,7 @@ function setTimer(pFunction) {
 /**
  * Tek haneli sayilarin basina 0 ekler
  */
-function addZero() {
-    if (second < 10) {
-        second = "0" + second;
-    }
-    if (minute < 10) {
-        minute = "0" + minute;
-    }
-    if (hour < 10) {
-        hour = "0" + hour;
-    }
+function addZero(pTime) {
+    let zeroTime = pTime.toString().padStart(2, '0');
+    return zeroTime;
 }
